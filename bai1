@@ -1,0 +1,68 @@
+#include<iostream>
+using namespace std;
+class ptb1
+{
+	int a;
+	int b;
+	public:
+		ptb1();
+		ptb1(int a1, int b1);
+		ptb1(ptb1 &pt);
+		void nhap();
+		void xuat();
+		int giai();
+};
+ptb1::ptb1()
+{
+	a=0;
+	b=0;
+}
+ptb1::ptb1(int a1,int b1):a(a1),b(b1)
+{
+}
+ptb1::ptb1(ptb1 &pt):a(pt.a),b(pt.b)
+{
+}
+void ptb1::nhap()
+{
+	cout<<"nhap a:";cin>>a;
+	cout<<"nhap b:";cin>>b;
+}
+int ptb1::giai()
+{
+		 if(a==0) 
+		 {
+	 	if(b==0) 
+		 {
+	 		return 0;
+		 }
+		else
+			return 1;
+	     }
+	 else 
+	 {
+	 	return -b/a;
+	 }
+} 
+
+void ptb1::xuat()
+{
+	if(giai()==0)
+	{
+		cout<<"pt vsn";
+	}
+	else
+	if(giai()==1)
+	{
+		cout<<"pt vn";
+	}
+	else
+	cout<<"pt co nghiem la:"<<giai();
+} 
+int main()
+{
+	ptb1 pt;
+	pt.nhap();
+	pt.xuat();
+	pt.giai();
+}
