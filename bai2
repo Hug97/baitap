@@ -1,0 +1,63 @@
+#include<iostream>
+#include<conio.h>
+#include<math.h>
+using namespace std;
+
+ class complex
+  {
+ private:
+  float a,b;
+  public:
+  complex()
+   {
+   a = 0;
+   b = 0;
+   }
+  void nhap()
+   {
+   cout<<"Nhap vao phan thuc : ";cin>>a;
+   cout<<"Nhap vao phan ao : ";cin>>b;
+   }
+  void in()
+   {
+   cout<<a;
+   if (b>=0) cout<<"+";
+  else cout<<"-";
+  cout<<"i*"<<fabs(b);
+
+   }
+  friend complex operator+(complex x1,complex x2);
+  friend complex operator-(complex x1,complex x2);
+  };
+  complex operator+(complex x1,complex x2)
+  {
+  complex x;
+  x.a =x1.a+ x2.a;
+  x.b =x1.b+x2.b;
+  return x;
+  }
+  complex operator-(complex x1,complex x2)
+  {
+  complex x;
+  x.a =x1.a- x2.a;
+  x.b =x1.b-x2.b;
+  return x;
+  }
+  int main()
+ {
+ system("cls");
+  complex x,y,c,d;
+  cout<<"Nhap so phuc thu 1: \n";
+  x.nhap();
+  cout<<"Nhap so phuc thu 2 :\n";
+  y.nhap();
+  cout<<"Cac so phuc da nhap :\n";
+  x.in();
+  cout<<" va ";
+  y.in();
+  cout<<"\n\n"; 
+  c=x+y;
+  cout<<"Tong hai so phuc la: \n";
+  c.in();
+  getch();
+ }
